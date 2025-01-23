@@ -1,0 +1,17 @@
+/* App.css */
+
+/* Optional: Adjust Sidebar Height */
+.sidebar {
+  min-height: 100vh;
+}
+
+/* Optional: Customize the Content Area */
+.content-area {
+  background-color: #f8f9fa;
+}
+
+/* Optional: Styling for the Footer */
+footer {
+  background-color: #343a40;
+  color: white;
+}
