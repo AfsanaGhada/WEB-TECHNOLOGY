@@ -1,0 +1,276 @@
+db["users"].find()
+use ecommerce_db
+already on db ecommerce_db
+db.createCollection("products")
+{ ok: 1 }
+db.createCollection("categories")
+{ ok: 1 }
+db.createCollection("orders")
+{ ok: 1 }
+db.createCollection("cart")
+{ ok: 1 }
+db.createCollection("payments")
+{ ok: 1 }
+db.createCollection("reviews")
+{ ok: 1 }
+db.createCollection("shipping")
+{ ok: 1 }
+db.createCollection("promotions")
+-----------------------select------------------
+db.products.find().pretty()
+
+
+
+-----------------------------------1.insert data users------------------------------
+db.users.insertMany([
+  {
+    name: "Afsana",
+    email: "afsana@example.com",
+    password: "hashed_password_afsana",
+    role: "customer",
+    addresses: [
+      {
+        line1: "123 Garden Street",
+        city: "Pune",
+        state: "MH",
+        zip: "411001",
+        country: "India"
+      }
+    ],
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Faizan",
+    email: "faizan@example.com",
+    password: "hashed_password_faizan",
+    role: "customer",
+    addresses: [
+      {
+        line1: "789 Lake View",
+        city: "Delhi",
+        state: "DL",
+        zip: "110001",
+        country: "India"
+      }
+    ],
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Meet",
+    email: "meet@example.com",
+    password: "hashed_password_meet",
+    role: "customer",
+    addresses: [
+      {
+        line1: "321 Hill Road",
+        city: "Ahmedabad",
+        state: "GJ",
+        zip: "380001",
+        country: "India"
+      }
+    ],
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Darshan",
+    email: "darshan@example.com",
+    password: "hashed_password_darshan",
+    role: "customer",
+    addresses: [
+      {
+        line1: "456 Maple Avenue",
+        city: "Mumbai",
+        state: "MH",
+        zip: "400001",
+        country: "India"
+      }
+    ],
+    created_at: new Date(),
+    updated_at: new Date()
+  }
+])
+
+
+
+-----------------------------------2.product------------------------
+
+db.products.insertMany([
+  {
+    name: "Wireless Earbuds",
+    description: "Noise-canceling wireless earbuds with long battery life.",
+    price: 2999.99,
+    categories: [],
+    stock: 100,
+    images: ["earbuds1.jpg", "earbuds2.jpg"],
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Laptop Backpack",
+    description: "Water-resistant laptop backpack with multiple compartments.",
+    price: 1999.99,
+    categories: [],
+    stock: 50,
+    images: ["backpack1.jpg", "backpack2.jpg"],
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Smartphone",
+    description: "Latest model with advanced features.",
+    price: 19999.99,
+    categories: [],
+    stock: 30,
+    images: ["smartphone1.jpg", "smartphone2.jpg"],
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Fitness Watch",
+    description: "Tracks steps, heart rate, and more.",
+    price: 3999.99,
+    categories: [],
+    stock: 75,
+    images: ["watch1.jpg", "watch2.jpg"],
+    created_at: new Date(),
+    updated_at: new Date()
+  }
+])
+----------------------------------------3.catagories--------------------------
+db.categories.insertMany([
+  {
+    name: "Electronics",
+    description: "Electronic devices and accessories",
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Accessories",
+    description: "Fashion and utility accessories",
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Home Appliances",
+    description: "Essentials for your home",
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    name: "Fitness",
+    description: "Products for a healthy lifestyle",
+    created_at: new Date(),
+    updated_at: new Date()
+  }
+])
+
+--------------------------4.cart------------------------------
+db.cart.insertMany([
+  { user_id: db.users.findOne({ name: "Afsana" })._id, total: 2999.99 },
+  { user_id: db.users.findOne({ name: "Faizan" })._id, total: 1999.99 },
+  { user_id: db.users.findOne({ name: "Meet" })._id, total: 19999.99 },
+  { user_id: db.users.findOne({ name: "Darshan" })._id, total: 3999.99 }
+])
+-------------------------------5.payments-----------------------------
+db.payments.insertMany([
+  { user_id: db.users.findOne({ name: "Afsana" })._id, amount: 2999.99, status: "Success" },
+  { user_id: db.users.findOne({ name: "Faizan" })._id, amount: 1999.99, status: "Success" },
+  { user_id: db.users.findOne({ name: "Meet" })._id, amount: 19999.99, status: "Success" },
+  { user_id: db.users.findOne({ name: "Darshan" })._id, amount: 3999.99, status: "Pending" }
+])
+
+-----------------------6.review---------------------------------
+db.reviews.insertMany([
+  { user_id: db.users.findOne({ name: "Afsana" })._id, rating: 5, comment: "Great product!" },
+  { user_id: db.users.findOne({ name: "Faizan" })._id, rating: 4, comment: "Good quality." },
+  { user_id: db.users.findOne({ name: "Meet" })._id, rating: 5, comment: "Excellent service." },
+  { user_id: db.users.findOne({ name: "Darshan" })._id, rating: 3, comment: "Average experience." }
+])
+
+----------------------------7.promotion--------------------------------
+db.promotions.insertMany([
+  { code: "SAVE20", discount_percentage: 20 },
+  { code: "OFF10", discount_percentage: 10 },
+  { code: "BUY1GET1", description: "Buy one, get one free" },
+  { code: "FREESHIP", description: "Free shipping on all orders" }
+])
+
+
+---------------------------------8.order--------------------------
+db.orders.insertMany([
+  {
+    user_id: db.users.findOne({ name: "Afsana" })._id,
+    items: [
+      { product_id: db.products.findOne({ name: "Wireless Earbuds" })._id, quantity: 1, price: 2999.99 }
+    ],
+    total: 2999.99,
+    status: "Pending",
+    shipping_address: {
+      line1: "123 Garden Street",
+      city: "Pune",
+      state: "MH",
+      zip: "411001",
+      country: "India"
+    },
+    payment_status: "Paid",
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    user_id: db.users.findOne({ name: "Faizan" })._id,
+    items: [
+      { product_id: db.products.findOne({ name: "Laptop Backpack" })._id, quantity: 1, price: 1999.99 }
+    ],
+    total: 1999.99,
+    status: "Shipped",
+    shipping_address: {
+      line1: "789 Lake View",
+      city: "Delhi",
+      state: "DL",
+      zip: "110001",
+      country: "India"
+    },
+    payment_status: "Paid",
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    user_id: db.users.findOne({ name: "Meet" })._id,
+    items: [
+      { product_id: db.products.findOne({ name: "Smartphone" })._id, quantity: 1, price: 19999.99 }
+    ],
+    total: 19999.99,
+    status: "Delivered",
+    shipping_address: {
+      line1: "321 Hill Road",
+      city: "Ahmedabad",
+      state: "GJ",
+      zip: "380001",
+      country: "India"
+    },
+    payment_status: "Paid",
+    created_at: new Date(),
+    updated_at: new Date()
+  },
+  {
+    user_id: db.users.findOne({ name: "Darshan" })._id,
+    items: [
+      { product_id: db.products.findOne({ name: "Fitness Watch" })._id, quantity: 1, price: 3999.99 }
+    ],
+    total: 3999.99,
+    status: "Processing",
+    shipping_address: {
+      line1: "456 Maple Avenue",
+      city: "Mumbai",
+      state: "MH",
+      zip: "400001",
+      country: "India"
+    },
+    payment_status: "Pending",
+    created_at: new Date(),
+    updated_at: new Date()
+  }
+])
