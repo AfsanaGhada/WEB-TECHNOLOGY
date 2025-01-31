@@ -6,6 +6,9 @@ import MapDemo from './Component/MapDemo'
 import FacultyDemo from './Component/Faculties'
 import StudentDemo from './Component/Student'
 import ProductDemo from './Component/Product'
+import FacultyTable from './Component/facultyTable'
+import StudentTable from './Component/StudentTable'
+import ProductTable from './Component/ProductTable'
 
 function App() {
 
@@ -15,6 +18,10 @@ function App() {
       <FacultyDemo />
       <StudentDemo />
       <ProductDemo />
+      <FacultyTable />
+      <StudentTable />
+      <ProductTable />
+      
     </>
   )
 }
