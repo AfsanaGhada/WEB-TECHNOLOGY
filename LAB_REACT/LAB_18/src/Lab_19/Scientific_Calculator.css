@@ -1,0 +1,68 @@
+/* Scientific_Calculator.css */
+.calculator {
+    width: 320px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f7f9fc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calculator-display {
+    width: 90%;
+    padding: 15px;
+    font-size: 1.5rem;
+    text-align: right;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .calculator-buttons button {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #e0e6ed;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .calculator-buttons button:hover {
+    background-color: #d0d8e0;
+  }
+  
+  .calculator-buttons .equal {
+    grid-column: span 4;
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .calculator-buttons .equal:hover {
+    background-color: #45a049;
+  }
+  
+  .calculator-buttons .clear {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .calculator-buttons .clear:hover {
+    background-color: #e53935;
+  }
+  
+  .calculator-buttons .backspace {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .calculator-buttons .backspace:hover {
+    background-color: #fb8c00;
+  }
+  
