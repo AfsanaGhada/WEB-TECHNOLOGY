@@ -1,0 +1,45 @@
+/* src/styles.css */
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .form {
+    margin: 10px 0;
+  }
+  
+  input {
+    margin: 5px;
+    padding: 8px;
+    width: 200px;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 8px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+  }
+  
+  .user-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+  }
+  
+  .user-card img {
+    border-radius: 50%;
+  }
+  
